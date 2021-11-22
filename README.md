@@ -1,2 +1,2 @@
 # napi
-Simple network API combined with bootstrap to display your computer's network statistics
+Network API combined with django to display your computer's network statistics
