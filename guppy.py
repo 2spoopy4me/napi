@@ -1,12 +1,26 @@
-from flask import Flask
-import psutil
-from pprint import pprint as p
-import json
-import threading
-import time
-from collections import deque
+#!/usr/bin/env python3
+
+import click
 
 import psutil
+import pickle
+import datetime
+import os.path
+
+
+
+
+def get_up_down():
+	pass	
+
+
+
+
+
+#if __name__ == '__main__':
+#    get_up_down()
+
+
 
 import threading
 import time
@@ -50,37 +64,11 @@ t = threading.Thread(target=calc_ul_dl, args=(transfer_rate,))
 t.daemon = True
 t.start()
 
+guppy_file = open('up_down', 'w')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-app = Flask(__name__)
-
-@app.route('/interfaces/', methods=['GET'])
-
-def get_interfaces():
-    '''Returns JSON output of system's network interfaces'''
-    interfaces = psutil.net_if_addrs()
-    return json.dumps( list(interfaces.keys()) )
-
-
-@app.route('/interfaces/en0/speed/', methods=['GET'])
-
-def get_up_down():
-    '''Returns JSON output of system's network interfaces'''
+# The rest of your program, emulated by me using a while True loop
+while True:
     print_rate(transfer_rate)
-    return print_rate(transfer_rate)
-
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=105)
+    # write to file
+    guppy_file.write(print_rate(transfer_rate))
+    time.sleep(1)

@@ -198,8 +198,10 @@ def network_traffic(format: str, interface: str):
                 'dropin':current_state['en0'][6],
                 'dropout':current_state['en0'][7]
             }
-    return result
+    #return result
 
-    #print(current_state['en0'])
+    print(current_state['en0'])
 
 
+if __name__ == '__main__':
+    network_traffic()
