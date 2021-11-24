@@ -161,8 +161,9 @@ def network_traffic(format: str, interface: str):
             last_state = pickle.load(file)
 
     # get current value
+    # all interfaces w/ values
     current_state = psutil.net_io_counters(pernic=True)
-    #print(current_state)
+
     # add a timestamp to the measured values
     current_state["timestamp"] = datetime.datetime.now()
 
@@ -197,11 +198,8 @@ def network_traffic(format: str, interface: str):
                 'dropin':current_state['en0'][6],
                 'dropout':current_state['en0'][7]
             }
-
+    return result
 
     #print(current_state['en0'])
 
-
-#if __name__ == '__main__':
-#    network_traffic()
 
